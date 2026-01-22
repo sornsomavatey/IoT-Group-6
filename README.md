@@ -27,8 +27,8 @@
 
 ## Task 2 - Telegram Send
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/523da78e-ce91-4c25-bd8f-6644fabe2418" width="400" alt="Task2">
   <img src="https://github.com/user-attachments/assets/342a6672-150c-48a2-896a-eeefd2b0d9ef" width="400" alt="Task2">
+  <img src="https://github.com/user-attachments/assets/523da78e-ce91-4c25-bd8f-6644fabe2418" width="400" alt="Task2">
 </p> <br>
 
 * A ```send_message()``` function is implemented
@@ -54,8 +54,8 @@ Watch the video [here](https://youtu.be/jUGsw2-0e0o?feature=shared) 🎥
 
 ## Task 5 - Robustness
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/c3ed03bf-ae75-4782-9c73-2799e6ab3a8f" width="400" alt="Task5">
   <img src="https://github.com/user-attachments/assets/0805d56f-def9-4ff2-b377-39b009fcb3fd" width="400" alt="Task5">
+  <img src="https://github.com/user-attachments/assets/c3ed03bf-ae75-4782-9c73-2799e6ab3a8f" width="400" alt="Task5">
 </p> <br>
 
 * The system automatically reconnects to Wi-Fi if the connection is lost.
@@ -65,5 +65,8 @@ Watch the video [here](https://youtu.be/jUGsw2-0e0o?feature=shared) 🎥
 <br>
 
 ## Task 6 - Diagram
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d9070229-f0d4-40cf-bbe9-f5651a939811" width="400" alt="Task6">
+</p> <br>
 
 
