@@ -1,7 +1,7 @@
 # IoT-Group-6
 
 ## Wiring
-!blob:https://web.telegram.org/f240bb2e-81df-46f4-a0df-b71b1ddc56f4![Uploading image.png…]()
+![[blob:https://web.telegram.org/f240bb2e-81df-46f4-a0df-b71b1ddc56f4![Uploading image.png…]()]]
 
 
 
