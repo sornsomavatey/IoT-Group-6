@@ -10,4 +10,4 @@
 
 ## Task 5 - Robustness
 
-## Task 6 - Daagram
+## Task 6 - Diagram
