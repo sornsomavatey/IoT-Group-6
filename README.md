@@ -47,10 +47,11 @@
 
 <br>
 
-## Task 3 - Bot Command
-Watch the video [here]([url](https://youtu.be/jUGsw2-0e0o?feature=shared)) 
+## Task 4 - Bot Command
+Watch the video [here](https://youtu.be/jUGsw2-0e0o?feature=shared)
 
 <br>
+
 ## Task 5 - Robustness
 <p align="center">
   <img src="https://github.com/user-attachments/assets/c3ed03bf-ae75-4782-9c73-2799e6ab3a8f" width="400" alt="Task5">
