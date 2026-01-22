@@ -42,13 +42,13 @@
 </p> <br>
 
 * The ``/status`` command replies with the current temperature, humidity, and relay state.
-* The /on command turns the relay ON.
-* /off command turns the relay OFF.
+* The ``/on`` command turns the relay ON.
+* ``/off`` command turns the relay OFF.
 
 <br>
 
 ## Task 4 - Bot Command
-Watch the video [here](https://youtu.be/jUGsw2-0e0o?feature=shared)
+Watch the video [here](https://youtu.be/jUGsw2-0e0o?feature=shared) 🎥
 
 <br>
 
