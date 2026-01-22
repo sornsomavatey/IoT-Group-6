@@ -31,7 +31,7 @@
   <img src="https://github.com/user-attachments/assets/342a6672-150c-48a2-896a-eeefd2b0d9ef" width="400" alt="Task2">
 </p> <br>
 
-* A send_message() function is implemented
+* A ```send_message()``` function is implemented
 * A test message is sent successfully to the Telegram group
 
 <br>
@@ -41,7 +41,7 @@
   <img src="https://github.com/user-attachments/assets/96f9cae3-cbc3-45d0-b62d-0d332df0fb2d" width="400" alt="Task3">
 </p> <br>
 
-* The /status command replies with the current temperature, humidity, and relay state.
+* The ``/status`` command replies with the current temperature, humidity, and relay state.
 * The /on command turns the relay ON.
 * /off command turns the relay OFF.
 
