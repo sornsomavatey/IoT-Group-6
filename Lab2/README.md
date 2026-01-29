@@ -1,4 +1,4 @@
-# IoT-Group-6
+# IoT-Group-6 | lab 2
 
 ## Wiring
 <p align="center">
