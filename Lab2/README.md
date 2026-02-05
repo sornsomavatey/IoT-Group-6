@@ -14,36 +14,30 @@
   
 <br>
 
-## Task 1 - Sensor Read & Print 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/663fce69-d8c0-46b9-a11b-3807f9d3edfb" width="400" alt="Task1">
-</p> <br>
-
-* The DHT22 sensor is read every 5 seconds
-* Temperature and humidity are printed with 2 decimal precision
-* Output is visible on the serial monitor 
+## Task 1 - LED Control 
+* Watch the video [here](Link) 🎥
 
 <br>
 
-## Task 2 - Telegram Send
+## Task 2 - Sensor Read 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/342a6672-150c-48a2-896a-eeefd2b0d9ef" width="400" alt="Task2">
   <img src="https://github.com/user-attachments/assets/523da78e-ce91-4c25-bd8f-6644fabe2418" width="400" alt="Task2">
 </p> <br>
 
-* A ```send_message()``` function is implemented
-* A test message is sent successfully to the Telegram group
+* Read DHT11 temperature and ultrasonic distance.
+* Show values on the web page (refresh every 1-2 seconds).
 
 <br>
 
-## Task 3 - Bot Command
+## Task 3 - Sensor → LCD 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/96f9cae3-cbc3-45d0-b62d-0d332df0fb2d" width="400" alt="Task3">
 </p> <br>
 
-* The ``/status`` command replies with the current temperature, humidity, and relay state.
-* The ``/on`` command turns the relay ON.
-* ``/off`` command turns the relay OFF.
+* Add two buttons:
+  * 
+  * 
 
 <br>
 
