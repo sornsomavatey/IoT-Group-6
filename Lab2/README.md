@@ -12,7 +12,7 @@ When the ON and OFF buttons on the web page are clicked, the LED turns on and of
 
 <p align="center">
   <a href="https://youtu.be/uwnB_UIAtZw">
-    <img src="https://img.youtube.com/vi/uwnB_UIAtZw/maxresdefault.jpg" width="500" alt="LED Control Demo">
+    <img src="https://img.youtube.com/vi/uwnB_UIAtZw/maxresdefault.jpg" width="500" alt="Task1">
   </a>
   <br>
   <br>
@@ -22,47 +22,38 @@ When the ON and OFF buttons on the web page are clicked, the LED turns on and of
 <br>
 
 ## Task 2 - Sensor Read 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/342a6672-150c-48a2-896a-eeefd2b0d9ef" width="400" alt="Task2">
-  <img src="https://github.com/user-attachments/assets/523da78e-ce91-4c25-bd8f-6644fabe2418" width="400" alt="Task2">
-</p> <br>
+The ON and OFF buttons are used to control the LED connected to the ESP32. When the buttons are clicked, the LED state changes in real time.
 
-* The ON and OFF buttons are used to control the LED connected to the ESP32. When the buttons are clicked, the LED state changes in real time.
-* Watch the video [here](https://youtu.be/uwnB_UIAtZw ) 🎥
+<p align="center">
+  <a href="https://youtu.be/wVUXlzACm8w">
+    <img src="https://youtu.be/wVUXlzACm8w/maxresdefault.jpg" width="500" alt="Task2">
+  </a>
+  <br>
+  <br>
+  🎥 <i><a href="https://youtu.be/wVUXlzACm8w">Click to watch the demo</a></i>
+</p>
 
 <br>
 
 ## Task 3 - Sensor → LCD 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/96f9cae3-cbc3-45d0-b62d-0d332df0fb2d" width="400" alt="Task3">
+  <img src="https://github.com/user-attachments/assets/c7c6a814-03ef-482a-a343-3ea463a04087" width="400" alt="Task3">
+  <img src="https://github.com/user-attachments/assets/b46c90eb-6e81-4364-a04e-b8c4c78f79e8" width="400" alt="Task3">
 </p> <br>
 
 * Add two buttons:
-  * 
-  * 
-
+  * Show Distance → writes distance to LCD line 1.
+  * Show Temp → writes temperature to LCD line 2.
 <br>
 
 ## Task 4 - Bot Command
-Watch the video [here](https://youtu.be/jUGsw2-0e0o?feature=shared) 🎥
+The LCDs the distance measured by the ultrasonic sensor after clicking the “Show Distance” button on the web page. The value is correctly written to line 1 of the LCD. 
 
-<br>
-
-## Task 5 - Robustness
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/0805d56f-def9-4ff2-b377-39b009fcb3fd" width="400" alt="Task5">
-  <img src="https://github.com/user-attachments/assets/c3ed03bf-ae75-4782-9c73-2799e6ab3a8f" width="400" alt="Task5">
-</p> <br>
-
-* The system automatically reconnects to Wi-Fi if the connection is lost.
-* Telegram HTTP errors are handled by printing the error status and skipping the current loop cycle.
-* Any errors in the DHT22 sensor readings are caught to prevent the program from crashing.
-
-<br>
-
-## Task 6 - Diagram
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/d9070229-f0d4-40cf-bbe9-f5651a939811" width="400" alt="Task6">
-</p> <br>
-
-
+  <a href="https://youtu.be/Nt91pbclZNI">
+    <img src="https://youtu.be/Nt91pbclZNI/maxresdefault.jpg" width="500" alt="Task4">
+  </a>
+  <br>
+  <br>
+  🎥 <i><a href="https://youtu.be/Nt91pbclZNI">Click to watch the demo</a></i>
+</p>
