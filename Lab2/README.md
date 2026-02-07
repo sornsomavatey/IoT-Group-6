@@ -1,11 +1,9 @@
 # IoT-Group-6 | lab 2
 
-
 ## Wiring
 <p align="center">
-  <img src="![Uploading Full.JPG…]()
-" width="400" alt="Wiring">
-  <img src="https://github.com/user-attachments/assets/46a96186-b17c-482e-90d7-c356c392b5d2" width="400" alt="Wiring">
+  <img src="(https://github.com/user-attachments/assets/16cb60a0-a921-4d78-beaa-9c58529b82d3)" width="400" alt="Wiring">
+  <img src="(https://github.com/user-attachments/assets/1334f83c-f06b-45b1-bb5f-b02bd53d5716)" width="400" alt="Wiring">
 </p> <br>
 
 * The system uses an ESP32, a DHT22 sensor, and a relay module.
