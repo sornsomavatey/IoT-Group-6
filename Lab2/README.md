@@ -4,7 +4,7 @@
 <p align="center">
   <img src="https://github.com/user-attachments/assets/16cb60a0-a921-4d78-beaa-9c58529b82d3" width="500" alt="Wiring">
   <img src="https://github.com/user-attachments/assets/1334f83c-f06b-45b1-bb5f-b02bd53d5716" width="500" alt="Wiring">
-  <img src="![DHT](https://github.com/user-attachments/assets/a09fe80f-1370-4c4c-aa72-8e48f830c3fa)" width="500" alt="Wiring">
+  <img src="https://github.com/user-attachments/assets/a09fe80f-1370-4c4c-aa72-8e48f830c3fa" width="500" alt="Wiring">
 <br>
 
 ## Task 1 - LED Control 
