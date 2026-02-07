@@ -37,8 +37,8 @@ The ON and OFF buttons are used to control the LED connected to the ESP32. When 
 
 ## Task 3 - Sensor → LCD 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/c7c6a814-03ef-482a-a343-3ea463a04087" width="400" alt="Task3">
-  <img src="https://github.com/user-attachments/assets/b46c90eb-6e81-4364-a04e-b8c4c78f79e8" width="400" alt="Task3">
+  <img src="https://github.com/user-attachments/assets/c7c6a814-03ef-482a-a343-3ea463a04087" width="500" alt="Task3">
+  <img src="https://github.com/user-attachments/assets/b46c90eb-6e81-4364-a04e-b8c4c78f79e8" width="700" alt="Task3">
 </p> <br>
 
 * Add two buttons:
