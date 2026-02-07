@@ -5,7 +5,6 @@
 <p align="center">
   <img src="" width="400" alt="Wiring">
   <img src="https://github.com/user-attachments/assets/46a96186-b17c-482e-90d7-c356c392b5d2" width="400" alt="Wiring">
-  <img src="https://github.com/user-attachments/assets/0a29aa7b-3d70-4ea2-a9fa-01ad47cb1461" width="400" alt="Wiring">
 </p> <br>
 
 * The system uses an ESP32, a DHT22 sensor, and a relay module.
