@@ -2,20 +2,21 @@
 
 ## Wiring
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/16cb60a0-a921-4d78-beaa-9c58529b82d3" width="400" alt="Wiring">
-  <img src="https://github.com/user-attachments/assets/1334f83c-f06b-45b1-bb5f-b02bd53d5716" width="400" alt="Wiring">
-</p> <br>
-
-* The system uses an ESP32, a DHT22 sensor, and a relay module.
-* The DHT22 VCC pin is connected to the 3.3V pin on the ESP32.
-* The DHT22 GND pin is connected to GND on the ESP32.
-* The DHT22 DATA pin is connected to a GPIO pin on the ESP32 for reading temperature and humidity.
-* The relay IN pin is connected to a GPIO pin on the ESP32 to control the relay.
-  
+  <img src="https://github.com/user-attachments/assets/16cb60a0-a921-4d78-beaa-9c58529b82d3" width="500" alt="Wiring">
+  <img src="https://github.com/user-attachments/assets/1334f83c-f06b-45b1-bb5f-b02bd53d5716" width="500" alt="Wiring">
+  <img src="![DHT](https://github.com/user-attachments/assets/a09fe80f-1370-4c4c-aa72-8e48f830c3fa)" width="500" alt="Wiring">
 <br>
 
 ## Task 1 - LED Control 
-* Watch the video [here](Link) 🎥
+When the ON and OFF buttons on the web page are clicked, the LED turns on and off immediately, confirming successful communication between the web server and the ESP32 hardware.
+
+<p align="center">
+  <a href="https://youtu.be/uwnB_UIAtZw">
+    <img src="https://img.youtube.com/vi/uwnB_UIAtZw/maxresdefault.jpg" width="500" alt="LED Control Demo">
+  </a>
+  <br>
+  🎥 <i>Click to watch the demo</i>
+</p>
 
 <br>
 
@@ -25,8 +26,8 @@
   <img src="https://github.com/user-attachments/assets/523da78e-ce91-4c25-bd8f-6644fabe2418" width="400" alt="Task2">
 </p> <br>
 
-* Read DHT11 temperature and ultrasonic distance.
-* Show values on the web page (refresh every 1-2 seconds).
+* The ON and OFF buttons are used to control the LED connected to the ESP32. When the buttons are clicked, the LED state changes in real time.
+* Watch the video [here](https://youtu.be/uwnB_UIAtZw ) 🎥
 
 <br>
 
