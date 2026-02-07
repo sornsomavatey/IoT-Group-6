@@ -3,7 +3,7 @@
 
 ## Wiring
 <p align="center">
-  <img src="" width="400" alt="Wiring">
+  <img src="![Uploading Full.JPG…]()" width="400" alt="Wiring">
   <img src="https://github.com/user-attachments/assets/46a96186-b17c-482e-90d7-c356c392b5d2" width="400" alt="Wiring">
 </p> <br>
 
