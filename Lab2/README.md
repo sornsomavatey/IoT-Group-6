@@ -26,7 +26,7 @@ The ON and OFF buttons are used to control the LED connected to the ESP32. When 
 
 <p align="center">
   <a href="https://youtu.be/wVUXlzACm8w">
-    <img src="https://youtu.be/wVUXlzACm8w/maxresdefault.jpg" width="500" alt="Task2">
+    <img src="https://img.youtube.com/vi/wVUXlzACm8w/maxresdefault.jpg" width="500" alt="Task2">
   </a>
   <br>
   <br>
@@ -51,7 +51,7 @@ The LCDs the distance measured by the ultrasonic sensor after clicking the “Sh
 
 <p align="center">
   <a href="https://youtu.be/Nt91pbclZNI">
-    <img src="https://youtu.be/Nt91pbclZNI/maxresdefault.jpg" width="500" alt="Task4">
+    <img src="https://img.youtube.com/vi/Nt91pbclZNI/maxresdefault.jpg" width="500" alt="Task4">
   </a>
   <br>
   <br>
