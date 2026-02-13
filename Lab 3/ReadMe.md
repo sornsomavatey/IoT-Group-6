@@ -30,7 +30,6 @@
 * After a short delay, servo returns to closed position.
 <p align="center">
   <a href="https://youtu.be/7eMrpmSn7iQ?si=1HdICr2zNNKiGkrw">
-    <img src="https://img.youtube.com/vi/7eMrpmSn7iQ?si=1HdICr2zNNKiGkrw/maxresdefault.jpg" width="500" alt="Task2">
   </a>
   
   <br>
@@ -43,7 +42,6 @@
 * After a short delay, servo returns to closed position.
 <p align="center">
   <a href="https://youtu.be/RRgFizq6AgY?si=GuvbHdkz4FcN4voy">
-    <img src="https://img.youtube.com/vi/RRgFizq6AgY?si=GuvbHdkz4FcN4voy/maxresdefault.jpg" width="500" alt="Task2">
   </a>
   
   <br>
@@ -56,7 +54,6 @@
 * After a short delay, servo returns to closed position.
 <p align="center">
   <a href="https://youtu.be/ykZDhu7YbXo?si=DY7mxPXL-DenqOgf">
-    <img src="https://img.youtube.com/vi/ykZDhu7YbXo?si=DY7mxPXL-DenqOgf/maxresdefault.jpg" width="500" alt="Task2">
   </a>
   
   <br>
