@@ -2,12 +2,12 @@
 
 ## Wiring
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/39fef0ec-71e0-4177-95e6-ee679920a14d" width="500" alt="Wiring">
-  <img src="https://github.com/user-attachments/assets/93bf8623-4857-4ace-acc5-11e8140e5fe1" width="500" alt="Wiring">
-  <img src="https://github.com/user-attachments/assets/c95e256e-414b-4be7-9d35-d4cf8a374f7d" width="500" alt="Wiring">
-  <img src="https://github.com/user-attachments/assets/10ed2625-261c-48e8-8081-c7024a91de09" width="500" alt="Wiring">
-  <img src="https://github.com/user-attachments/assets/db117983-548e-413b-9d2e-0bfb1bf8d24a" width="500" alt="Wiring">
-  <img src="https://github.com/user-attachments/assets/b2de9eb6-e755-4029-9756-57ffddf8baa5" width="500" alt="Wiring">
+  <img src="https://github.com/user-attachments/assets/39fef0ec-71e0-4177-95e6-ee679920a14d" width="250" alt="Wiring">
+  <img src="https://github.com/user-attachments/assets/93bf8623-4857-4ace-acc5-11e8140e5fe1" width="250" alt="Wiring">
+  <img src="https://github.com/user-attachments/assets/c95e256e-414b-4be7-9d35-d4cf8a374f7d" width="250" alt="Wiring">
+  <img src="https://github.com/user-attachments/assets/10ed2625-261c-48e8-8081-c7024a91de09" width="250" alt="Wiring">
+  <img src="https://github.com/user-attachments/assets/db117983-548e-413b-9d2e-0bfb1bf8d24a" width="250" alt="Wiring">
+  <img src="https://github.com/user-attachments/assets/b2de9eb6-e755-4029-9756-57ffddf8baa5" width="250" alt="Wiring">
 <br>
 
 ## Task 1 - IR sensor reading 
