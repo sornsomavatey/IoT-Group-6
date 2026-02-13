@@ -19,11 +19,7 @@
 *  <a href="https://youtu.be/wVUXlzACm8w">
     <img src="https://img.youtube.com/vi/wVUXlzACm8w/maxresdefault.jpg" width="500" alt="Task2">
   </a>
-
-<p align="center">
-  <a href="https://youtu.be/0c2dXrqC7Gs?si=z99TAQXRnlMVuDB8">
-    <img src="https://img.youtube.com/vi/0c2dXrqC7Gs?si=z99TAQXRnlMVuDB8/maxresdefault.jpg" width="500" alt="Task2">
-  </a>
+  
   <br>
   <br>
   🎥 <i><a href="https://youtu.be/0c2dXrqC7Gs?si=z99TAQXRnlMVuDB8">Click to watch the demo</a></i>
