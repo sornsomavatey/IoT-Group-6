@@ -16,13 +16,9 @@
 ## Task 2 - Servo motor control via  Blynk
 * Add a Blynk Slider widget to control servo position.
 * Slider position from 0 to 180 degree and the servo is moving following the slider
-<p align="center">
-  <a href="https://youtu.be/wVUXlzACm8w">
-    <img src="https://img.youtube.com/vi/wVUXlzACm8w/maxresdefault.jpg" width="500" alt="Task2">
-  </a>
-  
+* <a href="https://youtu.be/wVUXlzACm8w"></a>
   <br>
-  🎥 <i><a href="https://youtu.be/0c2dXrqC7Gs?si=z99TAQXRnlMVuDB8">Click to watch the demo</a></i>
+🎥 <i><a href="https://youtu.be/0c2dXrqC7Gs?si=z99TAQXRnlMVuDB8">Click to watch the demo</a></i>
 </p>
 
 ## Task 3 - Automatic IR-Servo action
