@@ -28,13 +28,41 @@
 ## Task 3 - Automatic IR-Servo action
 * When the IR sensor detects an object, servo opens automatically.
 * After a short delay, servo returns to closed position.
-*  <a href="https://youtu.be/7eMrpmSn7iQ?si=1HdICr2zNNKiGkrw">
-    <img src="https://img.youtube.com/vi/7eMrpmSn7iQ?si=1HdICr2zNNKiGkrw/maxresdefault.jpg" width="500" alt="Task2">
-  </a>
-
 <p align="center">
   <a href="https://youtu.be/7eMrpmSn7iQ?si=1HdICr2zNNKiGkrw">
-    <img src="https://img.youtube.com/vi/0c2dXrqC7Gs?si=z99TAQXRnlMVuDB8/maxresdefault.jpg" width="500" alt="Task2">
+    <img src="https://img.youtube.com/vi/7eMrpmSn7iQ?si=1HdICr2zNNKiGkrw/maxresdefault.jpg" width="500" alt="Task2">
   </a>
+  
   <br>
+  🎥 <i><a href="https://youtu.be/7eMrpmSn7iQ?si=1HdICr2zNNKiGkrw">Click to watch the demo</a></i>
+</p>
+  <br>
+
+## Task 4 - Automatic IR-Servo action
+* When the IR sensor detects an object, servo opens automatically.
+* After a short delay, servo returns to closed position.
+<p align="center">
+  <a href="https://youtu.be/RRgFizq6AgY?si=GuvbHdkz4FcN4voy">
+    <img src="https://img.youtube.com/vi/RRgFizq6AgY?si=GuvbHdkz4FcN4voy/maxresdefault.jpg" width="500" alt="Task2">
+  </a>
+  
+  <br>
+  🎥 <i><a href="https://youtu.be/RRgFizq6AgY?si=GuvbHdkz4FcN4voy">Click to watch the demo</a></i>
+</p>
+  <br>
+
+## Task 5 - Manual override mode
+* When the IR sensor detects an object, servo opens automatically.
+* After a short delay, servo returns to closed position.
+<p align="center">
+  <a href="https://youtu.be/ykZDhu7YbXo?si=DY7mxPXL-DenqOgf">
+    <img src="https://img.youtube.com/vi/ykZDhu7YbXo?si=DY7mxPXL-DenqOgf/maxresdefault.jpg" width="500" alt="Task2">
+  </a>
+  
+  <br>
+  🎥 <i><a href="https://youtu.be/ykZDhu7YbXo?si=DY7mxPXL-DenqOgf">Click to watch the demo</a></i>
+  🎥 <i><a href="https://youtu.be/kvF4lST5U8Q?si=UaiPYgKIOtBrFNg7">Final demonstration</a></i>
+</p>
+  <br>
+
  
