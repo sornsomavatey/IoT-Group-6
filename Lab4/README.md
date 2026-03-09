@@ -50,20 +50,20 @@
 
 ## Flowchart
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/844e622c-dbfb-44fe-b37a-6c1bb4c327c6" width="500" alt="Task4">
+  <img src="https://github.com/user-attachments/assets/844e622c-dbfb-44fe-b37a-6c1bb4c327c6" width="500" alt="Flowchart">
 </p> <br>
 
 ## Other
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/939c733a-a147-40ec-b140-af81453de23f" width="500" alt="Task4">
-  <img src="https://github.com/user-attachments/assets/81ee02b8-898c-451a-a84c-271cbf4cffb6" width="500" alt="Task4">
+  <img src="https://github.com/user-attachments/assets/939c733a-a147-40ec-b140-af81453de23f" width="500" alt="Other">
+  <img src="https://github.com/user-attachments/assets/81ee02b8-898c-451a-a84c-271cbf4cffb6" width="500" alt="Other">
 </p> <br>
 
 ## Demo
 <p align="center">
-  <a href="https://youtu.be/DGwv3Pez_xw" target="_blank" rel="noopener noreferrer">
+  <a href="https://youtu.be/DGwv3Pez_xw">
     <img src="https://img.youtube.com/vi/DGwv3Pez_xw/maxresdefault.jpg" width="500" alt="Demo">
   </a>
   <br><br>
-  🎥 <i><a href="https://youtu.be/DGwv3Pez_xw" target="_blank" rel="noopener noreferrer">Click to watch the demo</a></i>
+  🎥 <i><a href="https://youtu.be/DGwv3Pez_xw">Click to watch the demo</a></i>
 </p>
