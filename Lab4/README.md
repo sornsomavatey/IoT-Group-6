@@ -1,15 +1,5 @@
 # IoT-Group-6 | lab 4
 
-## Wiring
-<p align="center">
-  <img src="" width="250" alt="Wiring">
-  <img src="" width="250" alt="Wiring">
-  <img src="" width="250" alt="Wiring">
-  <img src="" width="250" alt="Wiring">
-  <img src="" width="250" alt="Wiring">
-  <img src="" width="250" alt="Wiring">
-<br>
-
 ## Task 1 - Gas Filtering (Moving Average)
 <p align="center">
   <img src="https://github.com/user-attachments/assets/6c4a02c8-5739-4a5f-aef2-1093d569db17" width="500" alt="Task1">
@@ -56,19 +46,26 @@
 * altitude (meters).
 * DS3231 timestamp
 
-
 <br>
 
-## Task 2 - Servo motor control via  Blynk
-* Add a Blynk Slider widget to control servo position.
-* Slider position from 0 to 180 degree and the servo is moving following the slider
-
+## Flowchart
 <p align="center">
-  <a href="https://youtu.be/0c2dXrqC7Gs">
-    <img src="https://img.youtube.com/vi/0c2dXrqC7Gs/maxresdefault.jpg" width="500" alt="Task2">
+  <img src="https://github.com/user-attachments/assets/844e622c-dbfb-44fe-b37a-6c1bb4c327c6" width="500" alt="Task4">
+</p> <br>
+
+## Other
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/939c733a-a147-40ec-b140-af81453de23f" width="500" alt="Task4">
+  <img src="https://github.com/user-attachments/assets/81ee02b8-898c-451a-a84c-271cbf4cffb6" width="500" alt="Task4">
+</p> <br>
+
+## Demo
+<p align="center">
+  <a href="https://youtu.be/DGwv3Pez_xw">
+    <img src="https://img.youtube.com/vi/DGwv3Pez_xw/maxresdefault.jpg" width="500" alt="Task2">
   </a>
   <br>
   <br>
-  🎥 <i><a href="https://youtu.be/0c2dXrqC7Gs">Click to watch the demo</a></i>
+  🎥 <i><a href="https://youtu.be/DGwv3Pez_xw">Click to watch the demo</a></i>
 </p>
 <br>
