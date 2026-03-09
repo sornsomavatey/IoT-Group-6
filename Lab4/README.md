@@ -61,11 +61,9 @@
 
 ## Demo
 <p align="center">
-  <a href="https://youtu.be/DGwv3Pez_xw">
-    <img src="https://img.youtube.com/vi/DGwv3Pez_xw/maxresdefault.jpg" width="500" alt="Task2">
+  <a href="https://youtu.be/DGwv3Pez_xw" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.youtube.com/vi/DGwv3Pez_xw/maxresdefault.jpg" width="500" alt="Demo">
   </a>
-  <br>
-  <br>
-  🎥 <i><a href="https://youtu.be/DGwv3Pez_xw">Click to watch the demo</a></i>
+  <br><br>
+  🎥 <i><a href="https://youtu.be/DGwv3Pez_xw" target="_blank" rel="noopener noreferrer">Click to watch the demo</a></i>
 </p>
-<br>
