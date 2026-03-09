@@ -1,0 +1,122 @@
+[
+    {
+        "id": "15e4cb60c42c9bbf",
+        "type": "mqtt in",
+        "z": "161772d8cb84f271",
+        "name": "",
+        "topic": "/lab4/task1",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "86f1839d7a4971ec",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 500,
+        "y": 760,
+        "wires": [
+            [
+                "6d8a24beedf3deb8",
+                "4935c036cacd3bce"
+            ]
+        ]
+    },
+    {
+        "id": "6d8a24beedf3deb8",
+        "type": "debug",
+        "z": "161772d8cb84f271",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "4935c036cacd3bce",
+        "type": "function",
+        "z": "161772d8cb84f271",
+        "name": "Lab 4",
+        "func": "let mq5_raw = msg.payload.mq5_raw;\nlet mq5_avg = msg.payload.mq5_avg;\nlet mq5_voltage = msg.payload.mq5_voltage;\nlet risk_level = msg.payload.risk_level;\nlet ambient_temp = msg.payload.ambient_temp;\nlet body_temp = msg.payload.body_temp;\nlet fever_flag = msg.payload.fever_flag;\nlet bmp_temp = msg.payload.bmp_temp;\nlet bmp_pressure = msg.payload.bmp_pressure;\nlet bmp_altitude = msg.payload.bmp_altitude;\nlet date_col = msg.payload.date;\nlet time_col = msg.payload.time;\n\nmsg.topic = `\nINSERT INTO sensor_data (\n    mq5_raw, mq5_avg, mq5_voltage, risk_level,\n    ambient_temp, body_temp, fever_flag,\n    bmp_temp, bmp_pressure, bmp_altitude,\n    date_col, time_col\n)\nVALUES (\n    ${mq5_raw}, ${mq5_avg}, ${mq5_voltage}, '${risk_level}',\n    ${ambient_temp}, ${body_temp}, ${fever_flag},\n    ${bmp_temp}, ${bmp_pressure}, ${bmp_altitude},\n    '${date_col}', '${time_col}'\n)\n`;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 880,
+        "wires": [
+            [
+                "0ddd7017d9c3d1b5"
+            ]
+        ]
+    },
+    {
+        "id": "0ddd7017d9c3d1b5",
+        "type": "mysql",
+        "z": "161772d8cb84f271",
+        "mydb": "7a7c14a71f6aca54",
+        "name": "",
+        "x": 870,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "86f1839d7a4971ec",
+        "type": "mqtt-broker",
+        "name": "MQTT Server",
+        "broker": "192.168.0.7",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "7a7c14a71f6aca54",
+        "type": "MySQLdatabase",
+        "name": "MyDB",
+        "host": "192.168.0.7",
+        "port": "4000",
+        "db": "mydb",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "f71eeae226d718af",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-node-mysql": "3.0.0"
+        }
+    }
+]
