@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ParkSense Smart Parking</title>
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <button class="menu-btn" onclick="toggleMenu()">
+        <i class="fa fa-bars"></i>
+    </button>
+    <h1 class="logo">ParkSense</h1>
+</header>
+
+<!-- SIDEBAR -->
+<nav id="sidebar">
+    <ul>
+        <li onclick="showSection('dashboard')"><i class="fa fa-chart-line"></i> Dashboard</li>
+        <li onclick="showSection('slots')"><i class="fa fa-square-parking"></i> Parking Slots</li>
+        <li onclick="showSection('time')"><i class="fa fa-clock"></i> Parking Time</li>
+        <li onclick="showSection('receipt')"><i class="fa fa-receipt"></i> Receipt</li>
+    </ul>
+</nav>
+
+<div id="overlay" onclick="toggleMenu()"></div>
+
+<!-- HERO IMAGE -->
+<section class="hero">
+    <div class="hero-text">
+        <h2>Smart Parking Management</h2>
+        <p>Monitor and manage parking spaces efficiently</p>
+    </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<main>
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="section active">
+        <div class="cards">
+            <div class="card">
+                <i class="fa fa-car"></i>
+                <h3>Available Slots</h3>
+                <p id="availableSlots">3</p>
+            </div>
+            <div class="card">
+                <i class="fa fa-location-dot"></i>
+                <h3>Active Cars</h3>
+                <p id="activeCars">1</p>
+            </div>
+            <div class="card">
+                <i class="fa fa-gate-open"></i>
+                <h3>Gate Control</h3>
+                <button onclick="openGate()">Open</button>
+                <button onclick="closeGate()">Close</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARKING SLOTS -->
+    <section id="slots" class="section">
+        <h2>Parking Slots</h2>
+        <div class="parking-grid">
+            <div class="slot free">
+                <i class="fa fa-car"></i>
+                <p>P1</p>
+                <span>Free</span>
+            </div>
+            <div class="slot occupied">
+                <i class="fa fa-car"></i>
+                <p>P2</p>
+                <span>Occupied</span>
+            </div>
+            <div class="slot free">
+                <i class="fa fa-car"></i>
+                <p>P3</p>
+                <span>Free</span>
+            </div>
+            <div class="slot occupied">
+                <i class="fa fa-car"></i>
+                <p>P4</p>
+                <span>Occupied</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARKING TIME -->
+    <section id="time" class="section">
+        <h2>Parking Time</h2>
+        <div class="card">
+            <p>Vehicle ID: A123</p>
+            <p id="parkingTimer">00:00:00</p>
+        </div>
+    </section>
+
+    <!-- RECEIPT -->
+    <section id="receipt" class="section">
+        <h2>Parking Receipt</h2>
+        <div class="card receipt">
+            <p><b>Vehicle ID:</b> A123</p>
+            <p><b>Entry Time:</b> <span id="entryTime"></span></p>
+            <p><b>Exit Time:</b> <span id="exitTime">--</span></p>
+            <p><b>Duration:</b> <span id="duration">--</span></p>
+            <p><b>Rate:</b> $1 / hour</p>
+            <hr>
+            <h3>Total Fee: $<span id="totalFee">0</span></h3>
+            <button onclick="generateReceipt()">Generate Receipt</button>
+        </div>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
