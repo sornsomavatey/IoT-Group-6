@@ -73,7 +73,7 @@ header {
     height: 60vh;                /* 60% of viewport height */
     min-height: 250px;           /* ensure minimum height on small screens */
     max-height: 600px;           /* optional max height */
-    background: url("/herosection.jpg") center center no-repeat;
+    background: url("images/herosection.jpg") center center no-repeat;
     background-size: cover;      /* keeps image proportional */
     display: flex;
     align-items: center;
