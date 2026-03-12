@@ -220,3 +220,23 @@ hr {
         font-size: 24px;
     }
 }
+/* FOOTER */
+footer {
+    background: #111827;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: 40px;
+}
+
+footer .footer-content p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+@media(max-width:600px){
+    footer {
+        font-size: 0.8rem;
+        padding: 15px 10px;
+    }
+}
