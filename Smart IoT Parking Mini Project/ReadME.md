@@ -2,7 +2,7 @@
 
 # Smart IoT Parking Mini Project
 
-## Project Title: Parky
+## Project Title: Park At Your Own RISK
 
 Somavatey SORN, Tyty LIMENG, Darichy LIM, Channeath ROS
 
