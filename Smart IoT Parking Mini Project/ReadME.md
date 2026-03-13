@@ -9,7 +9,7 @@ Somavatey SORN, Tyty LIMENG, Darichy LIM, Channeath ROS
 
 Instructor: Prof. Theara SENG
 
-Course: FYP 401 002 - Final Year Project
+Course: ICT 360 002 - Introduction to Internet of Things
 
 </div>
 
