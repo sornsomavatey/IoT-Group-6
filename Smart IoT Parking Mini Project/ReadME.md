@@ -1,35 +1,19 @@
-# Parky - Smart IoT Parking Mini Project
+# AMERICAN UNIVERSITY OF PHNOM PENH
 
+## STUDY LOCALLY. LIVE GLOBALLY.
 
+---
 
-## Project Overview
+<div align="center">
 
-**Parky** is a Smart IoT Parking solution developed as part of the ICT 360 Section 2 - Introduction of Things course at the American University of Phnom Penh.
+<div style="font-size: 17px; font-weight: bold; margin-bottom: 0.5em;">Smart IoT Parking Mini Project</div>
 
-## Course Information
+<div style="font-size: 12px; font-weight: bold; margin-bottom: 1em;">Project Title: Parky</div>
 
-- **Institution**: American University of Phnom Penh
-- **Motto**: Study Locally. Live Globally.
-- **Course**: ICT 360 Section 2 - Introduction of Things
-- **Instructor**: Prof. Theara SENG
-- **Project Title**: Parky
-- **Developer**: Preshyboi
+Authors: Somavatey SORN, Tyty LIMENG, Darichy LIM, Channeath ROS
 
-## About This Project
+Instructor: Prof. Theara SENG
 
-Parky is a mini project that leverages IoT technology to solve parking challenges. The project demonstrates practical applications of IoT concepts in real-world scenarios, focusing on smart parking solutions.
+Course: FYP 401 002 - Final Year Project
 
-## Key Features
-
-- Smart parking detection and management
-- IoT-based monitoring system
-- Real-time parking availability tracking
-- Efficient space utilization
-
-## Technologies Used
-
-- IoT Devices and Sensors
-- Smart Connectivity Solutions
-- Real-time Data Processing
-
-## Project Structure
+</div>
