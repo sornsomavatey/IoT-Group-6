@@ -160,19 +160,19 @@ The ESP32 pushes temperature and slot count to Blynk every 5 seconds using Blynk
 
 ### 6.1 Automatic Vehicle Entry Flow
 
-**Step 1 — Detection:** The ultrasonic sensor continuously measures distance at the parking entry. When a vehicle is detected within the configured threshold (e.g., 20 cm), vehicle detection is triggered.
+**Step 1 Detection:** The ultrasonic sensor continuously measures distance at the parking entry. When a vehicle is detected within the configured threshold (e.g., 20 cm), vehicle detection is triggered.
 
-**Step 2 — Slot Check:** The ESP32 reads all IR sensors. If at least one slot is unoccupied, the system proceeds. If all slots are full, the gate does not open and a Telegram notification is sent.
+**Step 2 Slot Check:** The ESP32 reads all IR sensors. If at least one slot is unoccupied, the system proceeds. If all slots are full, the gate does not open and a Telegram notification is sent.
 
-**Step 3 — Gate Opens:** The servo rotates to the open angle. The LCD displays 'Gate Open'. A Telegram notification and Blynk/Web Server updates are sent simultaneously.
+**Step 3 Gate Opens:** The servo rotates to the open angle. The LCD displays 'Gate Open'. A Telegram notification and Blynk/Web Server updates are sent simultaneously.
 
-**Step 4 — Vehicle Passes:** After a configurable hold time, the servo closes the gate automatically.
+**Step 4 Vehicle Passes:** After a configurable hold time, the servo closes the gate automatically.
 
-**Step 5 — Slot Update:** The relevant IR sensor transitions to occupied. The slot counter decrements by one. TM1637, LCD, Web Dashboard, Blynk, and Telegram all reflect the new count.
+**Step 5 Slot Update:** The relevant IR sensor transitions to occupied. The slot counter decrements by one. TM1637, LCD, Web Dashboard, Blynk, and Telegram all reflect the new count.
 
 ### 6.2 Full Parking Scenario
 
-When all IR sensors read occupied, the gate is locked out from automatic opening. Any vehicle detection at the entry results in a Telegram alert ('Parking Full — Gate Locked') and the TM1637 displays 0 available slots. Manual override remains possible via all three platforms.
+When all IR sensors read occupied, the gate is locked out from automatic opening. Any vehicle detection at the entry results in a Telegram alert ('Parking Full, Gate Locked') and the TM1637 displays 0 available slots. Manual override remains possible via all three platforms.
 
 ### 6.3 Manual Override Flow
 
