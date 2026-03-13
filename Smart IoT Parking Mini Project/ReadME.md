@@ -187,9 +187,9 @@ In Auto mode, the relay activates lights when at least one slot becomes occupied
 
 ## 7. Challenges Faced
 
-### 7.1 Concurrent IoT Platform Management
+### 7.1 Slow ESP32
 
-Managing three IoT platforms simultaneously on a single ESP32 without blocking was the most significant technical challenge. Each platform requires regular polling or periodic data pushing, which initially caused timing conflicts where one platform's delay blocked others. This was resolved by implementing a uasyncio-based cooperative multitasking structure, with each platform operating in its own async coroutine and controlled timing intervals.
+
 
 ### 7.2 Wi-Fi Stability
 
@@ -203,9 +203,9 @@ The servo motor exhibited small jitter movements when PWM signals were generated
 
 Polling the Telegram Bot API too frequently triggered 429 Too Many Requests HTTP responses. The polling interval was increased to a 1-second minimum, and an exponential backoff strategy was added for repeated API errors to avoid persistent lockout.
 
-### 7.5 TM1637 Display Initialization
+### 7.5 Time Limitation
 
-The TM1637 MicroPython library required careful initialization timing. On fast ESP32 boots, the display would sometimes remain blank due to a missed initialization sequence. Adding a 500 ms startup delay after system boot resolved this issue reliably.
+
 
 
 ## 8. Future Improvements
