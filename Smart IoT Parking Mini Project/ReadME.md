@@ -205,7 +205,7 @@ Polling the Telegram Bot API too frequently triggered 429 Too Many Requests HTTP
 
 ### 7.5 Time Limitation
 
-
+This project is a big project with a short deadline plus there are more work that we have to do simultaneously 
 
 
 ## 8. Future Improvements
