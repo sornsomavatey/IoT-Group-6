@@ -8,211 +8,386 @@ Somavatey SORN, Tyty LIMENG, Darichy LIM, Channeath ROS
 
 Instructor: Prof. Theara SENG
 
-Course: ICT 360 002 - Introduction to Internet of Things
+ICT 360 002 - Introduction to Internet of Things
 
 </div>
 
+---
 
-## 1. Introduction
+## 1. Project Overview
 
-The Smart IoT Parking Management System is an embedded IoT project developed using the ESP32 microcontroller running MicroPython firmware. The system automates the management of a parking facility by detecting incoming vehicles, controlling a gate barrier, monitoring individual parking slot occupancy, regulating lighting, and reporting environmental data in real time.
+The Smart IoT Parking System is an embedded IoT solution designed to automate parking management using an ESP32 microcontroller with MicroPython.
 
-The system is designed to be accessed and controlled remotely through three IoT platforms: a Telegram Bot for command-based interaction, a locally hosted Web Server Dashboard for browser-based monitoring and control, and the Blynk mobile application for smartphone remote control.
+The system integrates multiple sensors, actuators, and cloud platforms to provide real-time monitoring, automated gate control, and parking fee calculation.
 
-This project demonstrates the integration of hardware sensors, actuators, and cloud-based services into a unified IoT solution. It reflects practical skills in embedded systems programming, real-time logic design, and multi-platform IoT integration.
+The system supports three remote control platforms:
+* Telegram Bot
+* Web Dashboard
+* Blynk Mobile Application
 
-## 2. Hardware Description
+All platforms remain synchronized so that any command or status update from one interface is reflected across the entire system.
 
-The following hardware components are used in the system. Each component serves a specific role in the detection, actuation, or display pipeline.
+---
 
-| Component | Role / Description |
-|-----------|-------------------|
-| ESP32 | Main microcontroller running MicroPython. Manages all sensors, actuators, and IoT platform communication via Wi-Fi. |
-| Ultrasonic Sensor (HC-SR04) | Mounted at the parking entry to detect incoming vehicles by measuring distance. Triggers gate-opening logic when threshold is crossed. |
-| IR Sensors (x3 minimum) | One sensor per parking slot. Each detects whether a slot is occupied or free. Outputs are polled to update the slot counter. |
-| Servo Motor | Controls the physical gate barrier. Rotates to a defined angle to open or close the gate based on system or remote commands. |
-| DHT11 Sensor | Measures ambient temperature and humidity inside the parking facility. Data is reported via all three IoT platforms. |
-| Relay Module | Controls the parking area lighting circuit. Can be triggered automatically or manually via remote commands. |
-| TM1637 4-Digit Display | Displays the current count of available parking slots in real time on a physical LED display at the entry. |
-| LCD I2C (16x2) | Displays system status messages such as gate state, temperature, and occupancy directly on the hardware unit. |
+## 2. System Architecture
 
+### Hardware Controller
 
-## GPIO Pin Configuration
+#### ESP32
 
-- **Ultrasonic Sensor:** TRIG GPIO 5, ECHO GPIO 18
-- **IR Sensors:** GPIO 19, GPIO 21, GPIO 22 (one per slot)
-- **Servo Motor:** Signal GPIO 23 (PWM-capable pin)
-- **DHT11:** Data GPIO 4
-- **Relay Module:** IN GPIO 26
-- **TM1637:** CLK GPIO 14, DIO GPIO 13
-- **LCD I2C:** SDA GPIO 21, SCL GPIO 22 (shared I2C bus)
+**Responsible for:**
 
-## 3. System Architecture
+* Reading sensors
+* Running automation logic
+* Controlling gate servos
+* Calculating parking fee
+* Updating displays
+* Providing API endpoints for remote platforms
 
-### 3.1 Block Diagram Overview
+### Sensors
 
-The system is structured in three logical layers:
+#### Ultrasonic Sensor
 
-- **Sensing Layer:** Ultrasonic sensor, IR sensors, DHT11 — all feeding raw data to the ESP32.
-- **Control Layer:** ESP32 (MicroPython) — processes sensor data, runs decision logic, drives actuators (servo, relay, displays).
-- **Platform Layer:** Telegram Bot, Web Server Dashboard, Blynk App — all communicating with the ESP32 over Wi-Fi.
+Detects vehicles approaching the **entry gate**.
 
-### 3.2 Communication Architecture
+#### IR Sensors (Parking Slots)
 
-| Platform | Communication Method |
-|----------|----------------------|
-| Telegram Bot | HTTPS polling via Telegram Bot API. ESP32 sends GET requests to check for commands and POST requests to send notifications. |
-| Web Server | ESP32 hosts a lightweight HTTP server on a local IP. A browser connects to view the dashboard and issue control commands. |
-| Blynk App | ESP32 connects to Blynk cloud using a device AUTH token. Widgets on the mobile app sync with virtual pins on the ESP32. |
+Detects whether parking slots are occupied.
 
-### 3.3 Component Interaction Flow
+#### IR Exit Sensor (IR4 – Pin 26)
 
-1. Vehicle arrives at entry. Ultrasonic sensor detects proximity below threshold distance.
-2. ESP32 checks slot availability by reading all IR sensor states.
-3. If slots available: Servo opens gate, TM1637 updates count, LCD updates status message.
-4. If no slots available: Gate remains closed, Telegram notification is sent.
-5. After vehicle enters, servo closes gate automatically after a timed delay.
-6. IR sensor in the assigned slot transitions to occupied state.
-7. Updated status is pushed simultaneously to Web Server, Blynk, and Telegram.
+Detects vehicles leaving the parking area.
 
-## 4. Software Architecture
+#### DHT11
 
-### 4.1 File Structure
+Measures environmental conditions:
 
-- **main.py** — Entry point. Initializes all hardware modules and starts the main async loop.
-- **config.py** — Stores Wi-Fi credentials, Telegram token, Blynk token, and GPIO pin definitions.
-- **sensors.py** — Functions for reading ultrasonic distance, IR states, and DHT11 data.
-- **actuators.py** — Functions for controlling servo angle, relay state, TM1637, and LCD output.
-- **telegram_bot.py** — Telegram polling loop, command parser, and notification sender.
-- **web_server.py** — HTTP server handler; serves the dashboard HTML and processes API requests.
-- **blynk_client.py** — Blynk connection manager, virtual pin read/write handlers, and data push functions.
+- Temperature
+- Humidity
 
-### 4.2 Main Loop Logic
 
-The main.py file runs a non-blocking cooperative loop that executes the following tasks on each iteration:
+### Actuators
 
-- Poll Ultrasonic sensor for vehicle detection at the entry point.
-- Read all IR sensor states and compute the current available slot count.
-- Update TM1637 display and LCD with current slot count and system status.
-- Check Telegram for new incoming commands and respond accordingly.
-- Handle any pending Web Server HTTP requests from the browser dashboard.
-- Push updated slot count and temperature data to Blynk virtual pins.
-- Read DHT11 temperature and humidity on a 10-second interval.
-- Evaluate relay state based on auto-mode rules or the last manual command received.
+#### Servo Motors
 
-### 4.3 Key Design Decisions
+- Entry gate barrier
+- Exit gate barrier
 
-- **Non-blocking architecture:** uasyncio (MicroPython async library) enables concurrent handling of sensors, IoT platform polling, and actuator control without any single task blocking others.
-- **Debounce logic:** IR sensor readings are debounced with a short hold-time to prevent false slot state transitions due to vibration or electrical noise.
-- **Gate state machine:** Gate states are OPEN, CLOSED, OPENING, and CLOSING. This prevents conflicting simultaneous commands from multiple platforms.
-- **Automatic Wi-Fi reconnection:** If the Wi-Fi connection drops, the system continues local sensor and actuator operations and reattempts reconnection every 10 seconds.
+#### LED Indicator (Pin 19)
 
+Replaces the relay module.
 
-## 5. IoT Integration
+Used to show system state such as:
 
-### 5.1 Telegram Bot
+- Gate open
+- Manual light control
+- System active state
 
-The Telegram Bot provides a command-line-style interface for remote control and status queries. The bot is registered via BotFather and authenticates using a unique token stored in config.py. The ESP32 polls the getUpdates API endpoint to receive commands.
+### Displays
 
-| Command | Description |
-|---------|-------------|
-| /status | Returns full system status: gate state, slot count, temperature, humidity, and relay state. |
-| /open | Manually commands the servo to open the gate regardless of occupancy state. |
-| /close | Manually commands the servo to close the gate. |
-| /slots | Returns the number of available and occupied parking slots. |
-| /temp | Returns the current DHT11 temperature (°C) and humidity (%) readings. |
-| /light_on | Activates the relay to turn on the parking area lights. |
-| /light_off | Deactivates the relay to turn off the parking area lights. |
+#### TM1637 Display
 
-Automated notifications are sent when: a vehicle is detected at entry, the gate opens or closes, all slots become full, or a slot becomes free after the lot was full.
+Displays **available parking slots**.
 
-### 5.2 Web Server Dashboard
+#### I2C LCD Display
 
-The ESP32 hosts an HTTP server accessible from any browser on the same Wi-Fi network. The dashboard is a single-page HTML/CSS/JavaScript interface stored on the ESP32 file system and served on request.
+Displays system information:
 
-Dashboard displays and controls:
+- Slot count
+- Temperature
+- System status
+- Parking fee when exiting
 
-- Live count of available parking slots with color-coded indicator.
-- Current temperature and humidity from DHT11.
-- Gate status indicator (Open / Closed) with timestamp of last change.
-- Relay and lighting status indicator.
-- Manual Open Gate and Close Gate action buttons.
-- Manual Light ON and Light OFF toggle buttons.
+---
 
-The dashboard uses periodic JavaScript fetch calls (polling every 2 seconds) to retrieve JSON data from the ESP32 and update the UI dynamically without reloading the page.
+## 3. IoT Platforms
 
+The system integrates three IoT interfaces.
 
-### 5.3 Blynk App
+### Telegram Bot
 
-The Blynk platform enables smartphone-based monitoring and control. The ESP32 connects to the Blynk cloud server using a device authentication token. Widget states are synced via virtual pins.
+Allows users to control and monitor the parking system through commands.
 
-| Virtual Pin | Widget / Function |
-|-------------|-------------------|
-| V0 | Button widget — Triggers gate open/close servo command. |
-| V1 | Gauge or Label widget — Displays current temperature in degrees Celsius. |
-| V2 | Value Display widget — Shows the current count of available parking slots. |
-| V3 | Switch widget — Manual relay control for parking area lighting. |
+### Web Dashboard
 
-The ESP32 pushes temperature and slot count to Blynk every 5 seconds using Blynk.virtualWrite(). The gate button operates in PUSH mode to trigger a one-time open/close toggle command.
+Provides a browser-based control panel for monitoring and manual gate control.
 
-## 6. Working Process Explanation
+### Blynk Mobile App
 
-### 6.1 Automatic Vehicle Entry Flow
+Provides mobile monitoring and remote control.
 
-**Step 1 Detection:** The ultrasonic sensor continuously measures distance at the parking entry. When a vehicle is detected within the configured threshold (e.g., 20 cm), vehicle detection is triggered.
+---
 
-**Step 2 Slot Check:** The ESP32 reads all IR sensors. If at least one slot is unoccupied, the system proceeds. If all slots are full, the gate does not open and a Telegram notification is sent.
+## 4. Blynk Virtual Pin Mapping
 
-**Step 3 Gate Opens:** The servo rotates to the open angle. The LCD displays 'Gate Open'. A Telegram notification and Blynk/Web Server updates are sent simultaneously.
+| VPin | Function |
+|------|----------|
+| V0 | Available Parking Slots |
+| V1 | Temperature |
+| V2 | Humidity |
+| V3 | Entry Gate Control |
+| V4 | Light Control |
+| V5 | Exit Gate Control |
+| V6 | Parking Fee Status |
 
-**Step 4 Vehicle Passes:** After a configurable hold time, the servo closes the gate automatically.
+---
 
-**Step 5 Slot Update:** The relevant IR sensor transitions to occupied. The slot counter decrements by one. TM1637, LCD, Web Dashboard, Blynk, and Telegram all reflect the new count.
+## 5. Telegram Commands
 
-### 6.2 Full Parking Scenario
+The system supports the following commands:
 
-When all IR sensors read occupied, the gate is locked out from automatic opening. Any vehicle detection at the entry results in a Telegram alert ('Parking Full, Gate Locked') and the TM1637 displays 0 available slots. Manual override remains possible via all three platforms.
+| Command | Function |
+|---------|----------|
+| /status | Show system status |
+| /open | Open entry gate |
+| /close | Close entry gate |
+| /open_exit | Open exit gate |
+| /close_exit | Close exit gate |
+| /slots | Show available parking slots |
+| /temp | Show temperature and humidity |
+| /light_on | Turn light ON |
+| /light_off | Turn light OFF |
+| /fee | Show parking fee |
+| /help | Show command list |
 
-### 6.3 Manual Override Flow
+---
 
-Operators can override automatic behavior at any time using Telegram commands, the Web Dashboard buttons, or Blynk widgets. A manual command received by any platform updates the
+## 6. Web Dashboard Features
 
+The web interface includes separate control sections.
 
-shared system state and the change is reflected across all platforms within the next poll/push cycle (within 2-5 seconds).
+### Entry Gate Section
 
-### 6.4 Lighting Logic
+- Open Entry Gate
+- Close Entry Gate
+- Entry gate status display
 
-In Auto mode, the relay activates lights when at least one slot becomes occupied and deactivates them when the lot is fully empty. In Manual mode, the operator explicitly controls the relay via /light_on, /light_off (Telegram), the dashboard buttons (Web), or the relay switch widget (Blynk).
 
-## 7. Challenges Faced
+### Exit Gate Section
 
-### 7.1 Slow ESP32
+- Open Exit Gate
+- Close Exit Gate
+- Exit gate status display
 
+### Parking Information
 
+Displays:
 
-### 7.2 Wi-Fi Stability
+- Available slots
+- Temperature
+- Humidity
+- Parking fee
 
-MicroPython on the ESP32 occasionally dropped its Wi-Fi connection during extended operation. A watchdog-style reconnection mechanism was implemented so that if the connection drops, the ESP32 continues running local sensor and actuator operations while reattempting Wi-Fi reconnection every 10 seconds in the background.
+### Light Control
 
-### 7.3 Servo Motor Jitter
+- Light ON button
+- Light OFF button
 
-The servo motor exhibited small jitter movements when PWM signals were generated alongside intensive processing tasks. This was resolved by increasing PWM frequency precision and adding a brief stabilization delay before releasing the PWM signal after each servo command.
+---
 
-### 7.4 Telegram API Rate Limiting
+## 7. Smart Gate System Logic
 
-Polling the Telegram Bot API too frequently triggered 429 Too Many Requests HTTP responses. The polling interval was increased to a 1-second minimum, and an exponential backoff strategy was added for repeated API errors to avoid persistent lockout.
+The Smart Gate system automatically manages vehicle entry and exit using sensors.
 
-### 7.5 Time Limitation
+---
 
-This project is a big project with a short deadline plus there are more work that we have to do simultaneously 
+### 7.1 Entry Gate Logic
 
+#### Vehicle Detection
 
-## 8. Future Improvements
+When the **Ultrasonic sensor detects a vehicle** within the detection threshold:
 
-- **License Plate Recognition:** Add an ESP32-CAM module to capture vehicle license plates at entry and process them via a cloud OCR API for automated access logging.
+1. The system checks available parking slots.
+2. If slots are available:
+   - Entry gate opens.
+3. If parking is full:
+   - Gate remains closed.
+   - LCD displays **Parking Full**.
 
-- **Mobile Payment Integration:** Connect a payment gateway so drivers can pay for reserved slots directly through the Blynk app or Web Dashboard.
+#### Automatic Gate Operation
+```
+Vehicle detected → Check slots
+      |
+      | Slots available
+      V
+Open entry gate
+      |
+Vehicle passes
+      |
+Close entry gate
 
-- **MQTT Protocol Migration:** Replace HTTP-based polling with MQTT (e.g., via HiveMQ or Mosquitto) for significantly faster and more efficient real-time communication.
+```
 
-- **Cloud Database Logging:** Store all entry/exit events, slot occupancy history, and temperature readings in a cloud database such
+---
+
+### 7.2 Exit Gate Logic
+
+When **IR Exit Sensor (Pin 26)** detects a vehicle leaving:
+
+1. Exit gate opens automatically.
+2. Parking fee is calculated.
+3. LCD displays the fee amount.
+4. The system sends notifications to:
+   - Telegram
+   - Web Dashboard
+   - Blynk
+
+After the vehicle passes:
+
+- Exit gate closes automatically.
+
+---
+
+### 7.3 Manual Gate Control
+
+Both entry and exit gates support manual operation through:
+
+- Telegram
+- Web Dashboard
+- Blynk
+
+Manual gates remain open **until a close command is received**.
+
+This prevents accidental gate closure during manual operations.
+
+## 8. Parking Fee Calculation
+
+The system includes a **time-based parking fee feature**.
+
+### Parking Timer Logic
+
+When **Slot 1 IR sensor detects a vehicle:**
+
+- The system starts a timer.
+
+When the vehicle leaves the slot:
+
+- The timer stops.
+- Parking duration is calculated.
+
+---
+
+### Fee Calculation
+
+The fee can be configured based on:
+
+- Per second
+- Per minute
+- Per hour
+
+**Example:**
+```
+Fee = parking_time × rate
+```
+
+--- 
+
+### Fee Display
+
+When the vehicle exits:
+
+The system displays the fee on:
+
+- LCD Display
+- Web Dashboard
+- Telegram Bot
+- Blynk App
+
+---
+
+## 9. Light Control System
+
+The relay module has been replaced with an **LED indicator on Pin 19**.
+
+The LED can be controlled through:
+
+- Web dashboard
+- Telegram commands
+- Blynk mobile app
+
+**Functions:**
+
+- Manual ON
+- Manual OFF
+
+---
+
+## 10. Cross-Platform Synchronization
+
+All platforms are synchronized through the system logic.
+
+### Example: If gate opened from Telegram
+
+```
+Telegram command
+        ↓
+ESP32 executes gate open
+        ↓
+Status updated
+        ↓
+Web dashboard updated
+        ↓
+Blynk updated
+```
+
+This ensures all platforms always show the same system state.
+
+---
+
+## 11. Smart Features Implemented
+
+The system includes several intelligent features:
+
+- Automatic gate control
+- Slot availability detection
+- Smart parking fee calculation
+- Multi-platform remote control
+- Real-time monitoring
+- Automatic exit gate operation
+- Cross-platform synchronization
+- Parking status display
+- Environmental monitoring
+
+---
+
+## 12. System Workflow Summary
+
+```
+Vehicle arrives
+      ↓
+Ultrasonic detects car
+      ↓
+Check available slots
+      ↓
+Gate opens if slot available
+      ↓
+Car parks in slot
+      ↓
+Slot sensor starts parking timer
+      ↓
+Vehicle exits
+      ↓
+Exit sensor triggered
+      ↓
+Parking fee calculated
+      ↓
+Gate opens
+      ↓
+Fee displayed on LCD + IoT platforms
+```
+
+---
+
+## 13. Future Improvements
+
+Possible enhancements include:
+
+- License plate recognition
+- Automatic billing payment system
+- Mobile parking reservation
+- AI-based slot prediction
+- Cloud database logging
+
+https://note.duling.bid/api/files/public/019cf70a-d90e-77b0-9951-bef07708d886/image.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdHRhY2htZW50SWQiOiIwMTljZjcwYS1kOTBlLTc3YjAtOTk1MS1iZWYwNzcwOGQ4ODYiLCJwYWdlSWQiOiIwMTljZjcwNy1mZGQwLTc4Y2QtYTc3ZS01NzAzODhlODczNWUiLCJ3b3Jrc3BhY2VJZCI6IjAxOTZlN2M0LTFkMjAtNzQ4Zi1hOTRmLWNhMTYyZWFjYWMwZCIsInR5cGUiOiJhdHRhY2htZW50IiwiaWF0IjoxNzc0MDI2NDE0LCJleHAiOjE3NzQwMzAwMTQsImlzcyI6IkRvY21vc3QifQ.fQabT5CofMATBqcAJl4xyFsoJt5Hv-wHSpbvRnLcBKA<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/7cd90d12-451c-42f2-94af-5693f24237cc" />
+
+
