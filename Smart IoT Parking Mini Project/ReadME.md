@@ -189,8 +189,6 @@ Displays:
 
 The Smart Gate system automatically manages vehicle entry and exit using sensors.
 
----
-
 ### 7.1 Entry Gate Logic
 
 #### Vehicle Detection
@@ -388,6 +386,9 @@ Possible enhancements include:
 - AI-based slot prediction
 - Cloud database logging
 
-https://note.duling.bid/api/files/public/019cf70a-d90e-77b0-9951-bef07708d886/image.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdHRhY2htZW50SWQiOiIwMTljZjcwYS1kOTBlLTc3YjAtOTk1MS1iZWYwNzcwOGQ4ODYiLCJwYWdlSWQiOiIwMTljZjcwNy1mZGQwLTc4Y2QtYTc3ZS01NzAzODhlODczNWUiLCJ3b3Jrc3BhY2VJZCI6IjAxOTZlN2M0LTFkMjAtNzQ4Zi1hOTRmLWNhMTYyZWFjYWMwZCIsInR5cGUiOiJhdHRhY2htZW50IiwiaWF0IjoxNzc0MDI2NDE0LCJleHAiOjE3NzQwMzAwMTQsImlzcyI6IkRvY21vc3QifQ.fQabT5CofMATBqcAJl4xyFsoJt5Hv-wHSpbvRnLcBKA<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/7cd90d12-451c-42f2-94af-5693f24237cc" />
-
+---
+<br>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/7cd90d12-451c-42f2-94af-5693f24237cc" width="500" alt="Task3">
+</p> <br>
 
