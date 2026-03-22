@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Parking Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f4f6fb; margin:0; color:#1f2937; }
+    .wrap { max-width:1100px; margin:20px auto; padding:20px; }
+    h1 { margin-bottom:20px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+    .card { background:#fff; border-radius:14px; padding:18px; box-shadow:0 4px 14px rgba(0,0,0,.08); }
+    .label { font-size:13px; color:#6b7280; text-transform:uppercase; margin-bottom:8px; }
+    .value { font-size:28px; font-weight:700; }
+    .section { margin-top:20px; }
+    .row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .buttons { display:flex; gap:12px; flex-wrap:wrap; margin-top:12px; }
+    button { border:none; padding:12px 18px; border-radius:10px; cursor:pointer; font-weight:700; }
+    .open { background:#16a34a; color:#fff; }
+    .close { background:#dc2626; color:#fff; }
+    .info { background:#0f766e; color:#fff; }
+    .small { margin-top:16px; color:#6b7280; }
+    #error { color:#dc2626; margin-top:10px; min-height:20px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Smart Parking Dashboard</h1>
+
+    <div class="grid">
+      <div class="card"><div class="label">Available Slots</div><div class="value" id="slots">--</div></div>
+      <div class="card"><div class="label">Occupied Slots</div><div class="value" id="occupied">--</div></div>
+      <div class="card"><div class="label">Temperature</div><div class="value" id="temperature">--</div></div>
+      <div class="card"><div class="label">Humidity</div><div class="value" id="humidity">--</div></div>
+      <div class="card"><div class="label">Entry Gate</div><div class="value" id="entry_gate">--</div></div>
+      <div class="card"><div class="label">Exit Gate</div><div class="value" id="exit_gate">--</div></div>
+      <div class="card"><div class="label">System LED</div><div class="value" id="system_led">--</div></div>
+      <div class="card"><div class="label">Parking Fee</div><div class="value" id="parking_fee">--</div></div>
+    </div>
+
+    <div class="section row">
+      <div class="card">
+        <div class="label">Entry Gate Control</div>
+        <div class="buttons">
+          <button class="open" onclick="sendCommand('/api/gate/open')">Open Entry</button>
+          <button class="close" onclick="sendCommand('/api/gate/close')">Close Entry</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="label">Exit Gate Control</div>
+        <div class="buttons">
+          <button class="open" onclick="sendCommand('/api/exit/open')">Open Exit</button>
+          <button class="close" onclick="sendCommand('/api/exit/close')">Close Exit</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="section row">
+      <div class="card">
+        <div class="label">Light Indicator Control</div>
+        <div class="buttons">
+          <button class="open" onclick="sendCommand('/api/light/on')">Light On</button>
+          <button class="close" onclick="sendCommand('/api/light/off')">Light Off</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="label">Light Mode</div>
+        <div class="small">Manual Light: <span id="light_manual">--</span></div>
+      </div>
+    </div>
+
+    <div class="card section">
+      <div class="label">Fee Details</div>
+      <div class="small">
+        Fee Time: <span id="fee_seconds">--</span> sec |
+        Fee Mode: <span id="fee_mode">--</span> |
+        Rate: <span id="fee_rate">--</span> |
+        Pending: <span id="fee_pending">--</span>
+      </div>
+      <div class="small">
+        Distance: <span id="distance">--</span> cm |
+        Wi-Fi: <span id="wifi">--</span> |
+        RSSI: <span id="rssi">--</span> |
+        Event: <span id="event">--</span>
+      </div>
+    </div>
+
+    <div id="error"></div>
+  </div>
+
+<script>
+let busy = false;
+function setError(msg){document.getElementById('error').textContent = msg || '';}
+async function fetchJson(url, timeoutMs){
+  const controller = new AbortController();
+  const timer = setTimeout(()=>controller.abort(), timeoutMs);
+  try{
+    const res = await fetch(url, {signal: controller.signal, cache:'no-store'});
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    return await res.json();
+  } finally { clearTimeout(timer); }
+}
+async function loadStatus(){
+  if(busy) return;
+  try{
+    const payload = await fetchJson('/api/status', 2500);
+    const d = payload.data || {};
+    document.getElementById('slots').textContent = d.available_slots;
+    document.getElementById('occupied').textContent = d.occupied_slots;
+    document.getElementById('temperature').textContent = d.temperature + ' °C';
+    document.getElementById('humidity').textContent = d.humidity + ' %';
+    document.getElementById('entry_gate').textContent = d.entry_gate;
+    document.getElementById('exit_gate').textContent = d.exit_gate;
+    document.getElementById('system_led').textContent = d.system_led;
+    const lm = document.getElementById('light_manual'); if(lm) lm.textContent = d.light_manual || '--';
+    document.getElementById('parking_fee').textContent = Number(d.parking_fee || 0).toFixed(2);
+    document.getElementById('fee_seconds').textContent = d.parking_fee_seconds;
+    document.getElementById('fee_mode').textContent = d.fee_mode;
+    document.getElementById('fee_rate').textContent = d.fee_rate;
+    document.getElementById('fee_pending').textContent = d.parking_fee_pending ? 'YES' : 'NO';
+    document.getElementById('distance').textContent = d.distance_cm;
+    document.getElementById('wifi').textContent = d.wifi || 'UNKNOWN';
+    document.getElementById('rssi').textContent = d.wifi_rssi ?? '--';
+    document.getElementById('event').textContent = d.last_event || 'unknown';
+    setError('');
+  } catch(e){
+    setError('Local app not responding');
+    console.log(e);
+  }
+}
+async function sendCommand(path){
+  if(busy) return;
+  busy = true;
+  try{
+    await fetchJson(path, 3000);
+    setTimeout(loadStatus, 150);
+  } catch(e){
+    setError('Command failed');
+  } finally {
+    setTimeout(()=>busy=false, 400);
+  }
+}
+loadStatus();
+setInterval(loadStatus, 2000);
+</script>
+</body>
+</html>
