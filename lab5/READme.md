@@ -2,7 +2,7 @@
 
 ## Task 1 - RGB Reading
 <p align="center">
-  <img src="" width="500" alt="Task1">
+  <img src="https://github.com/user-attachments/assets/a6229e86-3d21-485b-86b0-8ecf0f036aef" width="500" alt="Task1">
 </p> <br>
 
 * Read RGB values from TCS34725. 
@@ -13,8 +13,12 @@
 
 ## Task 2 - Color Classification
 <p align="center">
-  <img src="" width="500" alt="Task2">
-</p> <br>
+  <a href="https://youtube.com/shorts/Gn4BpYVE74I?feature=share">
+    <img src="https://img.youtube.com/vi/Gn4BpYVE74I?feature=share/maxresdefault.jpg" width="500" alt="2">
+  </a>
+  <br><br>
+  🎥 <i><a href="https://youtu.be/Gn4BpYVE74I?feature=share">Click to watch the demo</a></i>
+</p>
 
 * Classification Rules:
   * R > G and R > B → RED
@@ -22,11 +26,12 @@
   * B > R and B > G → BLUE
 * Evidence: demonstration of correct color detection.
 
+
 <br>
 
 ## Task 3 - NeoPixel Control
 <p align="center">
-  <img src="" width="500" alt="Task3">
+  <img src="https://github.com/user-attachments/assets/956bb811-5a6c-46c1-979d-53f85b61afcd" width="500" alt="Task3">
 </p> <br>
 
 * RED → NeoPixel shows Red
@@ -34,12 +39,17 @@
 * BLUE → NeoPixel shows Blue
 * Evidence: NeoPixel color change demonstration.
 
+
 <br>
 
 ## Task 4 - Motor Control (PWM)
 <p align="center">
-  <img src="" width="500" alt="Task4">
-</p> <br>
+  <a href="https://youtu.be/-xI4PCSwSdE">
+    <img src="https://img.youtube.com/vi/-xI4PCSwSdE/maxresdefault.jpg" width="500" alt="Task4">
+  </a>
+  <br><br>
+  🎥 <i><a href="https://youtu.be/-xI4PCSwSdE">Click to watch the demo</a></i>
+</p>
 
 * RED → PWM = 700
 * GREEN → PWM = 500
@@ -50,7 +60,7 @@
 
 ## Task 5 - MIT App Integration
 <p align="center">
-  <img src="" width="500" alt="Task5">
+  <img src="https://github.com/user-attachments/assets/3698725c-19d1-4930-896e-c2eed7b376d6" width="500" alt="Task5">
 </p> <br>
 
 * App Requirements:
@@ -62,6 +72,7 @@
 
 <br>
 
+<!-- 
 ## Flowchart
 <p align="center">
   <img src="" width="500" alt="Flowchart">
@@ -73,6 +84,8 @@
   <img src="" width="500" alt="Other">
 </p> <br>
 
+
+
 ## Demo
 <p align="center">
   <a href="https://youtu.be/DGwv3Pez_xw">
@@ -81,3 +94,5 @@
   <br><br>
   🎥 <i><a href="https://youtu.be/DGwv3Pez_xw">Click to watch the demo</a></i>
 </p>
+
+ -->
