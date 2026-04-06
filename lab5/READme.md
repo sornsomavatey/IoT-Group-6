@@ -78,6 +78,7 @@
   <img src="https://github.com/user-attachments/assets/db4f565b-4fea-4096-83a3-0e2b49d26bc0" width="500" alt="Flowchart">
 </p> <br>
 
+## Note: The lab specifies PWM values of 700 (RED), 500 (GREEN), and 300 (BLUE) . However, we do not have a 6V power supply as assumed in the lab. Our system uses a 5V supply, and due to voltage drop in the motor driver, the motor receives approximately 4V, resulting in lower speed. Therefore, we adjusted the PWM values to 800, 500, and 400 to compensate and achieve the expected motor performance.
 <!-- 
 ## Other
 <p align="center">
