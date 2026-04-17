@@ -1,115 +1,69 @@
-# LAB 6 – Smart RFID System with Cloud & SD Logging
+# IoT-Group-6 | lab 4
 
-## Overview
-An ESP32-based attendance system that reads RFID cards, identifies students,
-logs records to an SD card (CSV) and Firestore, and gives audio feedback via a buzzer.
+## Task 1 - Gas Filtering (Moving Average)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/6c4a02c8-5739-4a5f-aef2-1093d569db17" width="500" alt="Task1">
+</p> <br>
 
----
+* Read MQ-5 using ESP32 ADC (12-bit).
+* Store the last 5 readings.
+* Compute moving average.
+* Print raw and averaged value.
+* Send averaged value to Node-RED.
 
-## Files Included
+<br>
 
-| File | Description |
-|------|-------------|
-| `main.py` | Main application logic |
-| `mfrc522.py` | MFRC522 RFID driver |
-| `sdcard.py` | SPI SD card driver |
-| `attendance.csv` | Sample CSV output |
-| `README.md` | This document |
+## Task 2 - Gas Risk Classification
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/966484e0-92f2-4da3-99fa-4bec518caca6" width="500" alt="Task2">
+</p> <br>
 
----
+* Send risk_level with data packet based on defined rules.
 
-## Hardware
+<br>
 
-| Component | ESP32 Pin |
-|-----------|-----------|
-| RFID SDA (SS) | GPIO 5 |
-| RFID SCK | GPIO 18 |
-| RFID MOSI | GPIO 23 |
-| RFID MISO | GPIO 19 |
-| RFID RST | GPIO 4 |
-| SD CS | GPIO 15 |
-| SD SCK | GPIO 14 |
-| SD MOSI | GPIO 13 |
-| SD MISO | GPIO 12 |
-| Buzzer (+) | GPIO 2 |
-| Buzzer (–) | GND |
+## Task 3 - Fever Detection Logic
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/ed9586b1-be08-44f1-bfa8-f9d473005d7e" width="500" alt="Task3">
+</p> <br>
 
----
+* Send fever_flag to Node-RED.
 
-## Setup Instructions
+<br>
 
-### 1. Install MicroPython on ESP32
-1. Download the latest ESP32 MicroPython firmware from https://micropython.org/download/ESP32_GENERIC/
-2. Flash with: `esptool.py --chip esp32 erase_flash` then `esptool.py write_flash 0x1000 firmware.bin`
+## Task 4 - Pressure & Altitude Monitoring (Grafana)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/98bf4285-d6c7-403d-b2cc-428759af53d9" width="500" alt="Task4">
+</p> <br>
 
-### 2. Configure `main.py`
-Edit the following constants at the top of `main.py`:
+* Create Grafana panels for:
+* Gas Average (Time Series)
+* Risk Level Display
+* Body Temperature Gauge
+* Pressure Graph
+* Altitude Graph
+* pressure (hPa) from BMP280.
+* altitude (meters).
+* DS3231 timestamp
 
-```python
-WIFI_SSID        = "YOUR_WIFI_SSID"
-WIFI_PASSWORD    = "YOUR_WIFI_PASSWORD"
-FIREBASE_PROJECT = "YOUR_PROJECT_ID"
-```
+<br>
 
-### 3. Find Your Card UIDs
-Upload `main.py` temporarily without the student DB and run it in Thonny.
-Scan your cards — the UID will print to the console. Copy those UIDs into `STUDENT_DB`.
+## Flowchart
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/844e622c-dbfb-44fe-b37a-6c1bb4c327c6" width="500" alt="Flowchart">
+</p> <br>
 
-### 4. Set Up Firestore
-1. Go to https://console.firebase.google.com → Create a project
-2. Enable Firestore Database (test mode for development)
-3. Copy your Project ID into `FIREBASE_PROJECT`
-4. The collection name used is `attendance`
+## Other
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/939c733a-a147-40ec-b140-af81453de23f" width="500" alt="Other">
+  <img src="https://github.com/user-attachments/assets/81ee02b8-898c-451a-a84c-271cbf4cffb6" width="500" alt="Other">
+</p> <br>
 
-### 5. Upload Files to ESP32 (via Thonny)
-Upload all three `.py` files to the root of the ESP32:
-- `main.py`
-- `mfrc522.py`
-- `sdcard.py`
-
-### 6. Run
-Press the **Run** button in Thonny, or press the ESP32 reset button.
-The REPL will show: `[System] Ready. Please scan a card ...`
-
----
-
-## System Behaviour
-
-| Condition | Buzzer | SD Card | Firestore |
-|-----------|--------|---------|-----------|
-| Valid card | 0.3 s beep | Saved ✅ | Sent ✅ |
-| Unknown card | 3 s beep | Not saved ❌ | Not sent ❌ |
-
----
-
-## CSV Format
-```
-UID,Name,StudentID,Major,DateTime
-A1:B2:C3:D4,Alice Johnson,6501234001,Computer Engineering,2025-04-10 08:05:33
-```
-
----
-
-## Firestore Document Structure
-Each attendance record is stored as a document in the `attendance` collection:
-```json
-{
-  "uid":        "A1:B2:C3:D4",
-  "name":       "Alice Johnson",
-  "student_id": "6501234001",
-  "major":      "Computer Engineering",
-  "datetime":   "2025-04-10 08:05:33"
-}
-```
-
----
-
-## Troubleshooting
-
-| Symptom | Fix |
-|---------|-----|
-| `No SD card` error | Check SPI pins and CS pin; ensure card is FAT32 formatted |
-| RFID not detected | Verify SPI1 pins; check 3.3 V supply to RC522 |
-| Firestore 403 error | Set Firestore rules to `allow read, write: if true;` (test mode) |
-| NTP sync fails | Check Wi-Fi credentials; ensure port 123 UDP is open |
-| Duplicate scans | Adjust `debounce_time` constant in `main.py` |
+## Demo
+<p align="center">
+  <a href="https://youtu.be/DGwv3Pez_xw">
+    <img src="https://img.youtube.com/vi/DGwv3Pez_xw/maxresdefault.jpg" width="500" alt="Demo">
+  </a>
+  <br><br>
+  🎥 <i><a href="https://youtu.be/DGwv3Pez_xw">Click to watch the demo</a></i>
+</p>
