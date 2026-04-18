@@ -1,4 +1,4 @@
-# IoT-Group-6 | lab 4
+# IoT-Group-6 | lab 6
 
 ## Task 1 - Gas Filtering (Moving Average)
 <p align="center">
@@ -65,5 +65,5 @@
     <img src="https://img.youtube.com/vi/DGwv3Pez_xw/maxresdefault.jpg" width="500" alt="Demo">
   </a>
   <br><br>
-  🎥 <i><a href="https://youtu.be/DGwv3Pez_xw">Click to watch the demo</a></i>
+  🎥 <i><a href="https://youtu.be/0xaZg-RjPCk?si=mV7reAzQof5QAX51">Click to watch the demo</a></i>
 </p>
