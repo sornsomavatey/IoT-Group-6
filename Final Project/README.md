@@ -9,6 +9,8 @@ SnapBooth is a smart hands free photobooth that allows users to take photos usin
 - User experience: countdown display, buzzer sounds, ring light effects, and instant delivery.
 - Final output: a framed photo sent directly to Telegram.
 
+---
+
 ## 2. Problem Statement
 
 Traditional photobooths often require users to press buttons or use a remote control. This can interrupt the experience, especially during events where guests want something fast, simple, and fun.
@@ -23,6 +25,8 @@ SnapBooth solves these problems by using gesture detection and automated feedbac
 - ESP32-CAM has limited streaming ability and cannot support many direct video connections at the same time.
 - Frame choices from the user interface must be properly sent to the backend before capture.
 
+---
+
 ## 3. Solution
 
 SnapBooth solves the problem by making the photobooth automatic and handsfree. Instead of pressing a button or using a timer, users only need to show a high five gesture in front of the camera. The system then starts a countdown, turns on the ring light, plays buzzer sounds, captures the photo, adds the selected frame, and sends it to Telegram.
@@ -36,13 +40,21 @@ Key Solutions
   * Sends the final photo instantly to Telegram.
   * Keeps the system stable by letting only the backend connect directly to the ESP32-CAM.
 
+---
+
 ## 4. Hardware
 
 SnapBooth uses several hardware components connected through a local Wi-Fi network.
 
+<p align="center">
+  <img src="![Uploading image.png…]()" width="500" alt="Other">
+  <img src="" width="500" alt="Other">
+</p> <br>
+
 | Hardware | Purpose |
 |---|---|
 | ESP32-CAM | Captures the live video stream and photo frames |
+| ESP32 | control the external hardware components of the SnapBooth system, such as the ring light and buzzer. |
 | Ring Light ESP32 | Provides lighting during countdown and flash during capture |
 | Buzzer ESP32 | Gives sound feedback for countdown, success, or error |
 | Host PC | Runs Flask server, gesture detection, photo processing, and Telegram delivery |
@@ -55,6 +67,8 @@ SnapBooth uses several hardware components connected through a local Wi-Fi netwo
 - The buzzer gives audio cues so users know what is happening.
 - The host machine controls the full system and processes the photo.
 - Telegram is used as the final delivery platform.
+
+---
 
 ## 5. System Architecture
 
@@ -85,6 +99,8 @@ SnapBooth is organized into different layers so each part has a clear responsibi
 11. Photo is sent to Telegram.
 12. System resets and waits for the user to take the next picture or next user.
 
+---
+
 ## 6. Decision Logic
 
 SnapBooth uses a state machine to control the full capture process clearly and reliably.
@@ -106,6 +122,8 @@ SnapBooth uses a state machine to control the full capture process clearly and r
 - Disable gesture detection during countdown to prevent duplicate captures.
 - Apply the selected frame only after capture to keep the live preview smooth.
 - Allow the system to continue working even if the buzzer or ring light is offline.
+
+---
 
 ## 7. Overall Summary
 
