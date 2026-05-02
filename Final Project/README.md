@@ -2,29 +2,41 @@
 
 ## 1. Overview
 
-SnapBooth is a smart hands-free photobooth that allows users to take photos using a simple high-five gesture instead of pressing a button or using a remote. The system uses an ESP32-CAM for live video, Python with MediaPipe for gesture detection, Flask for backend control, and Telegram for instant photo delivery. Once a high-five is detected, SnapBooth starts a countdown, activates the buzzer and ring light, captures the photo, applies the selected frame, and sends the final image to Telegram, creating a smooth and interactive experience for events and social gatherings. :contentReference[oaicite:0]{index=0}
+SnapBooth is a smart hands free photobooth that allows users to take photos using a simple high five hand gesture instead of pressing a button or using a remote. The system uses an ESP32-CAM for live video, Python with MediaPipe for gesture detection, Flask for backend control, and Telegram for photo collection. Once a high five is detected, SnapBooth starts a countdown, activates the buzzer and ring light, captures the photo, applies the selected frame, and sends the final image to Telegram that creates a smooth and interactive experience for events and social gatherings.
 
-- Main goal: make photo-taking automatic, contact-free, and easy for all guests.
-- Key feature: high-five gesture detection as the photo trigger.
+- Main goal: make photo taking automatic, contact free, and easy for all guests.
+- Key feature: high five gesture detection as the photo trigger.
 - User experience: countdown display, buzzer sounds, ring light effects, and instant delivery.
 - Final output: a framed photo sent directly to Telegram.
 
 ## 2. Problem Statement
 
-Traditional photobooths often require users to press a button, use a remote control, or wait for a timer. This can interrupt the experience, especially during events where guests want something fast, simple, and fun.
+Traditional photobooths often require users to press buttons or use a remote control. This can interrupt the experience, especially during events where guests want something fast, simple, and fun.
 
 SnapBooth solves these problems by using gesture detection and automated feedback.
 
 ### Main Problems
 
-- Manual triggers make the experience less natural.
-- Timer-based captures can feel awkward because users do not always know when the photo will be taken.
+- Manual triggers like pressing buttons make the experience less convenient.
 - Lack of audio feedback makes it unclear whether the countdown has started or whether the photo was captured.
 - Photos are often stored locally instead of being delivered instantly.
 - ESP32-CAM has limited streaming ability and cannot support many direct video connections at the same time.
 - Frame choices from the user interface must be properly sent to the backend before capture.
 
-## 3. Hardware
+## 3. Solution
+
+SnapBooth solves the problem by making the photobooth automatic and handsfree. Instead of pressing a button or using a timer, users only need to show a high five gesture in front of the camera. The system then starts a countdown, turns on the ring light, plays buzzer sounds, captures the photo, adds the selected frame, and sends it to Telegram.
+
+Key Solutions
+  * Uses high five gesture detection instead of manual buttons.
+  * Shows a 3-2-1 countdown before taking the photo.
+  * Uses a buzzer to give sound feedback.
+  * Uses a ring light to improve photo lighting.
+  * Adds the user’s selected photo frame.
+  * Sends the final photo instantly to Telegram.
+  * Keeps the system stable by letting only the backend connect directly to the ESP32-CAM.
+
+## 4. Hardware
 
 SnapBooth uses several hardware components connected through a local Wi-Fi network.
 
@@ -33,7 +45,7 @@ SnapBooth uses several hardware components connected through a local Wi-Fi netwo
 | ESP32-CAM | Captures the live video stream and photo frames |
 | Ring Light ESP32 | Provides lighting during countdown and flash during capture |
 | Buzzer ESP32 | Gives sound feedback for countdown, success, or error |
-| Host PC / Raspberry Pi | Runs Flask server, gesture detection, photo processing, and Telegram delivery |
+| Host PC | Runs Flask server, gesture detection, photo processing, and Telegram delivery |
 | Wi-Fi Network | Connects the camera, peripherals, server, and web interface |
 
 ### Hardware Role Summary
@@ -44,7 +56,7 @@ SnapBooth uses several hardware components connected through a local Wi-Fi netwo
 - The host machine controls the full system and processes the photo.
 - Telegram is used as the final delivery platform.
 
-## 4. System Architecture
+## 5. System Architecture
 
 SnapBooth is organized into different layers so each part has a clear responsibility.
 
@@ -71,9 +83,9 @@ SnapBooth is organized into different layers so each part has a clear responsibi
 9. Photo is captured.
 10. Selected frame is applied to the photo.
 11. Photo is sent to Telegram.
-12. System resets and waits for the next user.
+12. System resets and waits for the user to take the next picture or next user.
 
-## 5. Decision Logic
+## 6. Decision Logic
 
 SnapBooth uses a state machine to control the full capture process clearly and reliably.
 
@@ -95,9 +107,9 @@ SnapBooth uses a state machine to control the full capture process clearly and r
 - Apply the selected frame only after capture to keep the live preview smooth.
 - Allow the system to continue working even if the buzzer or ring light is offline.
 
-## 6. Overall Summary
+## 7. Overall Summary
 
-SnapBooth is a smart hands-free photobooth that lets users take photos using a simple high-five gesture instead of pressing a button or using a remote. The system uses an ESP32-CAM for live video, Python with MediaPipe for gesture detection, Flask for backend control, and Telegram for instant photo delivery. Once a high-five is detected, SnapBooth starts a countdown, activates the buzzer and ring light, captures the photo, applies the selected frame, and sends the final image to Telegram, creating a smooth and interactive experience for events and social gatherings.
+SnapBooth is a smart hands free photobooth that lets users take photos using a simple high five gesture instead of pressing a button or using a remote. The system uses an ESP32-CAM for live video, Python with MediaPipe for gesture detection, Flask for backend control, and Telegram for instant photo delivery. Once a high-five is detected, SnapBooth starts a countdown, activates the buzzer and ring light, captures the photo, applies the selected frame, and sends the final image to Telegram, creating a smooth and interactive experience for events and social gatherings.
   
   * Main goal: make photo-taking automatic, contact-free, and easy for all guests.
   * Key problem solved: removes the need for manual triggers, remote controls, or someone managing the booth.
