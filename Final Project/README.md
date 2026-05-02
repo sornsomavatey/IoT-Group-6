@@ -47,7 +47,9 @@ Key Solutions
 SnapBooth uses several hardware components connected through a local Wi-Fi network.
 
 <p align="center">
-  <img src="![Uploading image.png…]()" width="500" alt="Other">
+  <img src="" width="500" alt="Other">
+  <img src="" width="500" alt="Other">
+  <img src="" width="500" alt="Other">
   <img src="" width="500" alt="Other">
 </p> <br>
 
