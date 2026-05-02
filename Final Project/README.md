@@ -76,7 +76,7 @@ SnapBooth is organized into different layers so each part has a clear responsibi
 
 | Layer | Component | Responsibility |
 |---|---|---|
-| Hardware Layer | ESP32-CAM | Provides the camera stream |
+| Hardware Layer | `ESP32-CAM` | Provides the camera stream |
 | Detection Layer | `gesture.py` | Detects the high-five gesture using MediaPipe |
 | Control Layer | `main.py` | Runs the main booth logic and state machine |
 | Server Layer | `server.py` | Provides Flask API, status updates, and live stream sharing |
