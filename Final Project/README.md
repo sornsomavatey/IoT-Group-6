@@ -47,10 +47,10 @@ Key Solutions
 SnapBooth uses several hardware components connected through a local Wi-Fi network.
 
 <p align="center">
-  <img src="" width="500" alt="Other">
-  <img src="" width="500" alt="Other">
-  <img src="" width="500" alt="Other">
-  <img src="" width="500" alt="Other">
+  <img src="https://github.com/user-attachments/assets/bc04b635-50c2-4f01-928c-cc36819db643" width="400"  alt="Other">
+  <img src="https://github.com/user-attachments/assets/133c0f14-f799-414a-a621-3614a6733484" width="400" alt="Other">
+  <img src="https://github.com/user-attachments/assets/21c20513-339c-46f7-81d7-d80d78fa592c" width="400" alt="Other">
+  <img src="https://github.com/user-attachments/assets/618385a2-3ebb-4407-8c2e-66372600c0c9" width="400" alt="Other">
 </p> <br>
 
 | Hardware | Purpose |
@@ -117,7 +117,7 @@ SnapBooth uses a state machine to control the full capture process clearly and r
 
 ### Key Design Decisions
 
-- Use a high-five gesture because it is simple, contact-free, and easy for guests to understand.
+- Use a high-five gesture because it is simple, contact-free, and easy for users to understand.
 - Use only one direct ESP32-CAM stream connection to avoid overloading the camera.
 - Let the backend share the camera stream with the web interface.
 - Use debounce logic so the system does not trigger from random hand movement.
