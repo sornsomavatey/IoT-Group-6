@@ -111,7 +111,7 @@ SnapBooth uses a state machine to control the full capture process clearly and r
 |---|---|
 | IDLE | System waits for a high-five gesture |
 | COUNTDOWN | Countdown begins, ring light turns on, buzzer plays |
-| CAPTURE | Camera captures the photo and ring light flashes |
+| CAPTURE | Camera captures the photo and ring light is flashing |
 | SENDING | Photo is framed and sent to Telegram |
 | RESULT | System shows success or error, then resets |
 
@@ -123,7 +123,6 @@ SnapBooth uses a state machine to control the full capture process clearly and r
 - Use debounce logic so the system does not trigger from random hand movement.
 - Disable gesture detection during countdown to prevent duplicate captures.
 - Apply the selected frame only after capture to keep the live preview smooth.
-- Allow the system to continue working even if the buzzer or ring light is offline.
 
 ---
 
